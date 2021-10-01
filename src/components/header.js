@@ -7,6 +7,7 @@ const Header = (title, date, temp) => {
   const h1 = document.createElement('h1');
   const sTemp = document.createElement('span')
 
+  div.classList.add('header');
   sDate.classList.add('date');
   sTemp.classList.add('temp');
 
