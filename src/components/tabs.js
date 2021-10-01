@@ -25,8 +25,21 @@ const Tabs = (topics) => {
   // </div>
   //
 }
+//THIS IMPORT STATEMENT IS THROWING ERRORS WTF
+import { assertImportSpecifier } from '@babel/types'; 
+import axios from 'axios';
 
 const tabsAppender = (selector) => {
+  const entry = document.querySelector(selector);
+
+  axios.get(`http://localhost:5000/api/topics`)
+  .then(resp => {
+    entry.appendChild(Tabs(resp.data.topics));
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
@@ -34,6 +47,6 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-}
+
 
 export { Tabs, tabsAppender }
