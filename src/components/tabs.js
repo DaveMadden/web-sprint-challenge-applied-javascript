@@ -26,7 +26,7 @@ const Tabs = (topics) => {
   //
 }
 //THIS IMPORT STATEMENT IS THROWING ERRORS WTF
-import { assertImportSpecifier } from '@babel/types'; 
+// import { assertImportSpecifier } from '@babel/types'; 
 import axios from 'axios';
 
 const tabsAppender = (selector) => {

@@ -43,8 +43,31 @@ const Card = (article) => {
   // </div>
   //
 }
-
+import axios from "axios";
 const cardAppender = (selector) => {
+  // console.log(selector);
+  const entry = document.querySelector(selector);
+
+  axios.get(`http://localhost:5000/api/articles`)
+  .then(resp => {
+    // console.log(resp.data.articles);
+    const objTopics = resp.data.articles
+    // console.log(objTopics);
+    const arrTopics = Object.keys(objTopics); //take object keys and convert to array
+    // console.log(arrTopics);
+    arrTopics.forEach(topic => { //iterating individual articles within each topic
+      // console.log(objTopics[topic]);
+      const articleTopics = objTopics[topic];
+      articleTopics.forEach(article => { //this loops each article in the whole object
+      entry.appendChild(Card(article));  
+      })
+      // console.log(`this is articleTopics: ${articleTopics}`);
+    })
+    
+  })
+  .catch(err => {
+    console.error(err);
+  })
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
