@@ -26,10 +26,8 @@ const Tabs = (topics) => {
   // </div>
   //
 }
-//THIS IMPORT STATEMENT IS THROWING ERRORS WTF
-// import { assertImportSpecifier } from '@babel/types'; 
-import axios from 'axios';
 
+import axios from 'axios';
 //pull the array to determine which tabs to make. make the tabs and append them to the top
 const tabsAppender = (selector) => {
   const entry = document.querySelector(selector);

@@ -50,23 +50,18 @@ const Card = (article) => {
 }
 import axios from "axios";
 const cardAppender = (selector) => {
-  // console.log(selector);
   const entry = document.querySelector(selector);
 
   axios.get(`http://localhost:5000/api/articles`)
   .then(resp => {
-    // console.log(resp.data.articles);
-    const objTopics = resp.data.articles
-    // console.log(objTopics);
+    const objTopics = resp.data.articles //returns an object with multiple keys. each key contains an array of articles.
     const arrTopics = Object.keys(objTopics); //take object keys and convert to array
-    // console.log(arrTopics);
+
     arrTopics.forEach(topic => { //iterating individual articles within each topic
-      // console.log(objTopics[topic]);
-      const articleTopics = objTopics[topic];
+      const articleTopics = objTopics[topic]; //this is an array PER TOPIC
       articleTopics.forEach(article => { //this loops each article in the whole object
-      entry.appendChild(Card(article));  
+      entry.appendChild(Card(article));  //adds the card
       })
-      // console.log(`this is articleTopics: ${articleTopics}`);
     })
     
   })
