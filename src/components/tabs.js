@@ -1,3 +1,4 @@
+//create topic tabs up top based on an array passed to the function
 const Tabs = (topics) => {
   const div = document.createElement('div');
   div.classList.add('topics');
@@ -29,6 +30,7 @@ const Tabs = (topics) => {
 // import { assertImportSpecifier } from '@babel/types'; 
 import axios from 'axios';
 
+//pull the array to determine which tabs to make. make the tabs and append them to the top
 const tabsAppender = (selector) => {
   const entry = document.querySelector(selector);
 

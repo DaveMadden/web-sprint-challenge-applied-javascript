@@ -22,6 +22,11 @@ const Card = (article) => {
   divImg.appendChild(img);
   divAuthor.appendChild(sBy);
 
+  //adding event listener:
+  divCard.addEventListener('click', () =>{
+    console.log(divHeadline.textContent);
+  })
+
   return divCard;
 
   // TASK 5
